@@ -1,0 +1,67 @@
+[
+  {
+    "key": "app_name",
+    "value": "中华会计网校",
+    "desc": "app名字"
+  },
+  {
+    "key": "package_name",
+    "value": "com.cdel.accmobile",
+    "desc": "app市场唯一标示"
+  },
+  {
+    "key": "channel",
+    "value": "AppStroe",
+    "desc": "渠道"
+  },
+  {
+    "key": "build_type",
+    "value": "debug",
+    "desc": "输出类型:debug, release"
+  },
+  {
+    "key": "build_time",
+    "value": "",
+    "desc": "打包时间 采用yyyyMMddHHmmss"
+  },
+  {
+    "key": "version_name",
+    "value": "1.0.0",
+    "desc": "线上发布版本号"
+  },
+  {
+    "key": "output_directory",
+    "value": "/Users/tommy/Desktop",
+    "desc": "/Users/tommy/Desktop"
+  },
+  {
+    "key": "branch",
+    "value": "master",
+    "desc": "分之名称"
+  },
+  {
+    "key": "build_version_code",
+    "value": "1",
+    "desc": "Build号码"
+  },
+  {
+    "key": "gradle_properties_path",
+    "value": "/Users/tommy",
+    "desc": "/Users/tommy"
+  },
+  {
+    "key": "project_path",
+    "value": "/Users/tommy",
+    "desc": "/Users/tommy"
+  },
+  {
+    "key": "nginx_html_path",
+    "value": "/var/www/html",
+    "desc": "/var/www/html"
+  },
+  {
+    "key": "server_ip",
+    "value": "192.168.190.41",
+    "desc": "localhost"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "key": "app_name",
+    "value": "金蛋理财",
+    "desc": "app名字"
+  },
+  {
+    "key": "package_name",
+    "value": "com.qiandele.jindanlicai",
+    "desc": "app市场唯一标示"
+  },
+  {
+    "key": "channel",
+    "value": "AppStroe",
+    "desc": "渠道"
+  },
+  {
+    "key": "build_type",
+    "value": "debug",
+    "desc": "输出类型:debug, release"
+  },
+  {
+    "key": "version_name",
+    "value": "1.0.0",
+    "desc": "线上发布版本号"
+  },
+  {
+    "key": "output_directory",
+    "value": "/Users/tommy/Desktop",
+    "desc": "/Users/tommy/Desktop"
+  },
+  {
+    "key": "branch",
+    "value": "master",
+    "desc": "master"
+  },
+  {
+    "key": "build_version_code",
+    "value": "1.0.0",
+    "desc": "1.0.0"
+  },
+  {
+    "key": "gradle_properties_path",
+    "value": "/Users/tommy",
+    "desc": "/Users/tommy"
+  },
+  {
+    "key": "project_path",
+    "value": "/Users/tommy",
+    "desc": "/Users/tommy"
+  },
+  {
+    "key": "nginx_html_path",
+    "value": "/usr/local/var/www",
+    "desc": "/usr/local/var/www"
+  },
+  {
+    "key": "server_ip",
+    "value": "192.168.101.123",
+    "desc": "192.168.101.123"
+  }
+]
