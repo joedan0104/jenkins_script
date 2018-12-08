@@ -8,6 +8,7 @@ Usage: test.py deliver [--projectname=<name>]
 import os, sys, json, shutil, glob
 import qrcode
 from gradle_properties import GradleProperties
+from manifest_editor import ManifestEditor
 from docopt import docopt
 
 def handle_args(arguments):
@@ -115,10 +116,25 @@ def deliver_app(arguments):
                 print fn
                 print r'filename: %s' % (os.path.basename(fn))
 
-        gradle_property_path = '/home/t1/jenkins/workspace/accmobile-git/gradle.properties'
-        version_name = '1.4.0'
-        version_code = 4
-        gradle_properties =  GradleProperties(gradle_property_path)
+	gradle_property_path = r'/home/dell/DEV/project/accmobile/gradle.properties'
+	version_name = '1.4.0'
+	version_code = 4
+	gradle_properties =  GradleProperties(gradle_property_path)
+
+	# 测试AndroidMainifest编辑
+	manifest = r'/home/dell/DEV/developer/jenkins_script/scripts/src/android/AndroidManifest.xml'
+	manifest_editor = ManifestEditor(manifest)
+	content = manifest_editor.readManifest()
+	content = manifest_editor.replace_meta_data('UMENG_CHANNEL', 'agent127', content)
+	content = manifest_editor.replace_meta_data('UNIONID', '127', content)
+	print content 
+	success = False
+	success = manifest_editor.saveManifest()
+    #if !success:
+    #    print 'saveManifest failed'
+    #else:
+    #    print 'saveManifest success'
+
 	gradle_properties.readProperties()
 	gradle_properties.updateProperties('VERSION_NAME', version_name)
 	gradle_properties.updateProperties('VERSION_CODE', version_code)
@@ -169,4 +185,4 @@ if __name__ == '__main__':
 	reload(sys)
 	sys.setdefaultencoding('utf8')
 	arguments = docopt(__doc__)
-        handle_args(arguments)
+	handle_args(arguments)

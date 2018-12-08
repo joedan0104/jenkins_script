@@ -1,0 +1,2570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cdel.medmobile"
+    android:installLocation="auto"
+    android:versionCode="29"
+    android:versionName="7.4.5" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="16" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+    <!-- 系统要求的权限，如访问网络等 -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.PROTECTION_DANGEROUS" />
+    <!-- 使用定位功能所需权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BOOT_COMPLETED" />
+    <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 极光 -->
+    <permission
+        android:name="com.cdel.medmobile.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.cdel.medmobile.permission.JPUSH_MESSAGE" />
+
+    <!-- IM 相关 Start ================================ -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- mi push -->
+    <permission
+        android:name="com.cdel.medmobile.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.cdel.medmobile.permission.MIPUSH_RECEIVE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <meta-data
+        android:name="com.tencent.rdm.uuid"
+        android:value="121a5979-c222-4b03-944e-17e27f6368f3" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SEND_SMS" /> <!-- 发送短信 -->
+    <uses-permission android:name="android.permission.READ_SMS" /> <!-- 读取短信 -->
+    <uses-permission android:name="android.permission.WRITE_SMS" /> <!-- 写入消息 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" /> <!-- 接收消息 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="oicq.wlogin_sdk.permission.WloginProvider.READ" />
+    <uses-permission android:name="oicq.wlogin_sdk.permission.WloginProvider.WRITE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+
+    <!-- 读取联系人 -->
+    <!-- Message聊天IM 相关 End ================================ -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="25.3.1" />
+
+    <application
+        android:name="com.cdel.accmobile.app.ui.ModelApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:launchMode="singleTask"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.cdel.accmobile.app.ui.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme2" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:path="details?id=com.cdel.medmobile"
+                    android:scheme="cdeledu" />
+                <data android:scheme="com.cdel.medmobile" />
+            </intent-filter>
+            <!-- 网页跳转App,如:扫码网页端自动登录,网页打开App后跳转指定页面打开网页等 -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 下面所设置的值需要和html端对调 -->
+                <!-- 在data里设置了 scheme和host，则该Activity可以接收和处理类似于 "sharetest://data/XXX"的链接 -->
+                <data
+                    android:host="med66"
+                    android:scheme="medmobile" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 下面所设置的质需要和html端对调 -->
+                <!-- 在data里设置了 scheme和host，则该Activity可以接收和处理类似于 "sharetest://data/XXX"的链接 host用来接收网页跳转App后传递过来的参数数据 -->
+                <data
+                    android:host="myapp"
+                    android:scheme="com.cdel.medmobile" />
+            </intent-filter>
+        </activity>
+
+        <!-- 动态修改logo  默认没有活动时的logo -->
+        <activity-alias
+            android:name="com.cdel.accmobile.app.ui.logo_default"
+            android:enabled="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:targetActivity="com.cdel.accmobile.app.ui.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <!-- 动态修改logo  默认有双11活动时的logo -->
+        <activity-alias
+            android:name="com.cdel.accmobile.app.ui.logo_1111"
+            android:enabled="false"
+            android:icon="@drawable/ic_big_del"
+            android:label="@string/app_name"
+            android:targetActivity="com.cdel.accmobile.app.ui.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <!-- 动态修改logo  默认有双12活动时的logo -->
+        <activity-alias
+            android:name="com.cdel.accmobile.app.ui.logo_1212"
+            android:enabled="false"
+            android:icon="@drawable/ic_image"
+            android:label="@string/app_name"
+            android:targetActivity="com.cdel.accmobile.app.ui.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <!-- 动态修改logo  默认有双旦活动时的logo -->
+        <activity-alias
+            android:name="com.cdel.accmobile.app.ui.logo_0101"
+            android:enabled="false"
+            android:icon="@drawable/ic_logo_0101"
+            android:label="@string/app_name"
+            android:targetActivity="com.cdel.accmobile.app.ui.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <!-- 动态修改logo  默认有元宵活动时的logo -->
+        <activity-alias
+            android:name="com.cdel.accmobile.app.ui.logo_0115"
+            android:enabled="false"
+            android:icon="@drawable/ic_logo_0115"
+            android:label="@string/app_name"
+            android:targetActivity="com.cdel.accmobile.app.ui.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- 电子书跳转过来的接收页面 -->
+        <activity
+            android:name="com.cdel.accmobile.app.ui.TransferActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.new.medmobile.phone" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cdel.accmobile.exam.ui.activities.ErrorAndFavActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.exam.ui.activities.AllErrorAndStoreActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.exam.ui.activities.ExamWebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.exam.newexam.util.ImageZoomAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.app.ui.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.cdel.accmobile.app.ui.GuideActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 图片引导 -->
+        <activity
+            android:name="com.cdel.accmobile.app.ui.ImageGuideActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- ================================登录模块 start======================================== -->
+        <!-- 登录_手机号 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.LoginPhoneActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- &lt;!&ndash; 登录_绑定手机H5 &ndash;&gt; -->
+        <!-- <activity -->
+        <!-- android:name=".login.ui.LoginBindPhoneActivity" -->
+        <!-- android:configChanges="orientation|screenSize|keyboardHidden" -->
+        <!-- android:launchMode="singleTask" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- 登录_修改密码 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.ResetPswActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 登录_账号密码 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.LoginAccountActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 登录_设置密码 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.PasswordEditActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 登录_账号绑定 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.LoginBindingActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 登录_注册 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.RegisterActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 扫码登录确认重扫 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.ScanLoginConfirmActivity"
+            android:screenOrientation="portrait" />
+        <!-- 登录_注销设备 -->
+
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.MyDouble11Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/player_tab" />
+        <activity
+            android:name="com.cdel.accmobile.login.ui.LoginResetDeviceActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 登录_重置密码 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.LoginRestPswActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 登录_账号检测 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.UserWarnActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 注册主界面 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.RegisterMainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 注册执行界面 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.RegisterExecuteActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 直接登录 -->
+        <activity
+            android:name="com.cdel.accmobile.login.ui.DirectLoginActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- ================================登录模块 end========================================== -->
+
+
+        <!-- 播放器开始 -->
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.DownloadVideoAndAudioActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.CourseDownloadHandoutsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.CourseLookUpHandoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.CoursePaperListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.MP4PlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/playerTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.CoursePlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/playerTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.hls.JijiaoHlsPlyerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/playerTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.cdel.accmobile.musicplayer.activity.MusicBottomTabActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/player_tab" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.PlayerSmallActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/playerDialogStyle"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.CourseProxyPlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/playerTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.PlayerBottomTabActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/player_tab" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.PlayerRightTabActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/player_tab" />
+        <activity
+            android:name="com.cdel.accmobile.musicplayer.activity.MusicPlayerActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <service android:name="com.cdel.accmobile.musicplayer.serivce.MusicService" >
+            <intent-filter android:priority="1000" >
+                <category android:name="android.intent.category.APP_MUSIC" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name="com.cdel.musicplayer.reciver.MediaButtonReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.cdel.accmobile.app.service.LoopService" />
+        <!-- 后台下载最新版本服务 -->
+        <service android:name="com.cdel.accmobile.app.updateversion.service.UpdateVersionService" >
+            <intent-filter>
+                <action android:name="com.cdel.accmobile.app.updateversion.service.UpdateVersionService" />
+            </intent-filter>
+        </service>
+        <!-- 讲义下载服务 -->
+        <service android:name="com.cdel.accmobile.hlsplayer.activity.CourseHandoutsDownloadService" />
+
+        <activity
+            android:name="com.cdel.accmobile.musicplayer.activity.MusicLockActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity="com.package.name.lockscreen"
+            android:theme="@style/LockScreenTheme" />
+        <activity
+            android:name="com.cdel.accmobile.musicplayer.activity.MusicPaperActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.PlayerUrlActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 播放器结束 -->
+        <!-- 答疑 -->
+        <activity
+            android:name="com.cdel.accmobile.faq.activities.FaqMajorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faq.activities.FaqCourseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faq.activities.FaqCategoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faq.activities.FaqSelectChapterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faq.activities.FaqPersonalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faq.activities.FaqQuestionInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faq.activities.FaqAskActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|stateVisible" />
+        <activity
+            android:name="com.cdel.accmobile.localimage.activities.LocalImageAlbumActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.localimage.activities.LocalImagePickerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faq.activities.FaqMainWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faq.activities.FaqQuestionAboutActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faq.activities.FaqAboutActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- X5默认播放器 -->
+        <activity
+            android:name="com.tencent.smtt.sdk.VideoActivity"
+            android:alwaysRetainTaskState="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="com.tencent.smtt.tbs.video.PLAY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 确认支付 -->
+        <!-- 确认支付 -->
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.OrderWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 确认订单 -->
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.ConfirmOrderH5Act"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 邮寄地址编辑 -->
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.AddressEditActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 邮寄地址选择 -->
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.MailTypeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 优惠券选择 -->
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.CouponChooseActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.PayWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.PayWebH5Activity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 收获地址列表 -->
+        android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 收获地址列表 -->
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.AddressListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.HasSelectedWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.ChooseClassWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.EditorHasSelectedWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.ShoppingaboutWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.ShoppingMainWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/payDialogStyle" />
+        <!-- 我的订单列表界面 -->
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.MyOrderListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.PromptActivty"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/full_screen_dialog" />
+        <!-- h5容器 -->
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.OrderCommonWebActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.ShoppingCartActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 客服聊天界面 -->
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.ChatWebActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.ChatWebImgActivity"
+            android:configChanges="keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!-- 考试中心、试卷列表、做题相关 Start -->
+        <activity
+            android:name="com.cdel.accmobile.exam.ui.PaperActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.exam.newexam.ui.DoQuestionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.exam.ui.selfhelp.SelfHelpPracticeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.exam.ui.selfhelp.ExamSelfPracticeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.exam.ui.selfhelp.ModificationPaperParameterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.exam.ui.ExamRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.exam.ui.activities.MyFavActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.exam.ui.SingleQuesDetailAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.exam.newexam.util.ShowImageActivity"
+            android:screenOrientation="portrait" />
+        <!-- 消息 -->
+        <activity
+            android:name="com.cdel.accmobile.jpush.JMessageListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jpush.NewJMessageListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jpush.JMessageDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jpush.JMessageWebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jpush.WebActivity"
+            android:screenOrientation="portrait" />
+        <!-- 极光标签 -->
+        <service android:name="com.cdel.accmobile.jpush.JpushService" />
+        <!-- 同步服务 -->
+        <service android:name="com.cdel.accmobile.app.service.SyncService" />
+        <!-- 变速插件 -->
+        <service android:name="com.cdel.classroom.cwarepackage.download.AddonDownloadService" />
+        <!-- 下载服务 -->
+        <service android:name="com.cdel.classroom.cwarepackage.download.DownloadService" />
+        <!-- 下载题库服务 -->
+        <service android:name="com.cdel.accmobile.exam.task.UpdateService" />
+        <!-- 加载数据 -->
+        <service android:name="com.cdel.accmobile.app.service.LoadCourseAndRecordService" />
+
+        <!-- 考试中心、试卷列表、做题相关 End -->
+
+
+        <!-- Message聊天消息模块 Start ====================================================================================== -->
+        <activity
+            android:name="com.cdel.accmobile.message.ui.SearchContactsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.message.ui.SearchContactsResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.message.ui.SelectContactActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.message.ui.activities.ServiceInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.message.ui.activities.ServiceWebActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.message.ui.AddFollowActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.cdel.accmobile.message.ui.ImConversationSettingAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.message.ui.MessageUserFollowAndFansActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.message.ui.MessageMyFollowActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.message.ui.activities.CommentAndPraiseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.message.ui.activities.CommentAndPraiseDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Message聊天消息模块 End====================================================================================== -->
+
+
+        <!-- 新课堂 -->
+        <activity
+            android:name="com.cdel.accmobile.coursenew.activity.CourseRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.coursenew.activity.CourseDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 播放器 -->
+
+        <activity
+            android:name="com.cdel.accmobile.wzwpractice.activity.TrainDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.cdel.accmobile.wzwpractice.activity.PDFViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.TeacherAppiresActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 简单小屏播放器 -->
+
+
+        <!-- 简单小屏播放器 -->
+
+
+        <!-- 简单播放器 -->
+
+
+        <!-- 面授补听播放器 -->
+
+
+        <!-- 课堂模块start -->
+        <activity
+            android:name="com.cdel.accmobile.course.ui.CourseCommonWebActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 勘误列表 -->
+        <activity
+            android:name="com.cdel.accmobile.course.ui.CorrectListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 预约记录 -->
+        <activity
+            android:name="com.cdel.accmobile.course.ui.AppointmentRecordActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 提交预约预约 -->
+        <activity
+            android:name="com.cdel.accmobile.course.ui.AddAppointmentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- android:configChanges="keyboardHidden|orientation|screenSize" -->
+        <!-- android:configChanges="keyboardHidden|screenSize" -->
+        <activity
+            android:name="com.cdel.accmobile.course.activate.ActivationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.course.ui.DownloadingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.course.ui.DownloadEndActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.course.ui.DownloadMyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.course.ui.OpenDownloadActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.course.ui.DownloadVideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.course.ui.ChapterListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.CoursePaperActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.daytest.DaytestQuestionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.CareSubjectExpandActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.SubjectSelectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.InforDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.InfoH5DetailNewAcitivty"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.PubH5DetailAcitivty"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.ExamTimeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.HomeMainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.InforProtogenesisActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.HotVideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.StarTeacherActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.SecondDragGridCategoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.course.ui.AllCourseWebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.course.ui.FreeVideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.scan.player.PlayController"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <!-- 课堂模块end -->
+        <!-- 我的与设置 -->
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.MyTaskActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.SettingMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.CropImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.AccountWebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.ClassGroupingErrorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.MyLiveClassGroupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.ClassGroupingScanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.MyInfoMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.SettingPlayMore"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.SettingDownloadMore"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.PersonalModifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.DeviceInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.SafeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.HisDeviceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.FeedBackFixActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.FileViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.NetWorkActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.PathActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.SettingMoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.PersonalQRActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.WeblAcitivty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.PersonVideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.StoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.InfoMedalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.MedalLightActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.SchoolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.SchoolScheduleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.SchoolSignResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.SchoolClassesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.MyRankActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.RankManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.EntryScoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.PaperInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.MakeUpLessonActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.WareListActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 直播 -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.WebcastMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.BannerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.BottomMenuExampleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.WebcastDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.LiveClassActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.MyLiveClassActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.AlarmclockActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyDialogStyle" />
+        <activity
+            android:name="com.cdel.webcast.activity.Welcome"
+            android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection"
+            android:label="欢迎界面"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.cdel.accmobile.app.ui.LivingCourseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.app.ui.LivingLoadActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 下面所设置的值需要和html端对调 -->
+                <!-- 在data里设置了 scheme和host，则该Activity可以接收和处理类似于 "sharetest://data/XXX"的链接 -->
+                <data
+                    android:host="gotoLivePlayer"
+                    android:scheme="medmobile" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cdel.webcast.activity.MainScene"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="主界面"
+            android:screenOrientation="landscape" >
+            >
+        </activity>
+
+        <!-- 免费资料 -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.datafree.DataFreeActivity"
+            android:screenOrientation="portrait" />
+        <!-- 立即领取 -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.datafree.AcceptActivity"
+            android:screenOrientation="portrait" />
+        <!-- 资料包在线预览 -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.datafree.OnlinePreviewActivity"
+            android:screenOrientation="portrait" />
+        <!-- 资料包本地在线预览 -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.datafree.LocalFilePreviewActivity"
+            android:screenOrientation="portrait" />
+        <!-- 资料包重命名 -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.datafree.FileRenameActivity"
+            android:screenOrientation="portrait" />
+        <!-- 免费资料下载历史 -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.datafree.DataFreeDownLoadHistoryActivity"
+            android:screenOrientation="portrait" />
+        <!-- 免费资料资料包预览 -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.datafree.PreviewActivity"
+            android:screenOrientation="portrait" />
+        <!-- 免费资料统一webView -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.datafree.HomeCommonWebActivity"
+            android:screenOrientation="portrait" />
+        <!-- 注册websocket服务 -->
+        <service android:name="com.cdel.webcast.websocket.WebSocketServer" >
+            <intent-filter>
+                <action android:name="com.app.websocketServer" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.cdel.accmobile.app.service.AlarmReceiver"
+            android:process=":romoteservice" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.cdel.accmobile.app.service.AlarmClockService"
+            android:process=":romoteservice" />
+
+        <!-- 直播模块 End====================================================================================== -->
+
+
+        <!-- 论坛块 start====================================================================================== -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.ForumActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.ForumEditActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 论坛块 end====================================================================================== -->
+
+
+        <!-- 消息 start====================================================================================== -->
+        <activity
+            android:name="com.cdel.accmobile.notice.ui.ClassMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.notice.ui.MsgDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.notice.ui.WriteMsgActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 消息 start====================================================================================== -->
+
+
+        <!-- 扫一扫start -->
+        <activity
+            android:name="com.cdel.accmobile.scan.ui.ScanMainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.cdel.accmobile.scan.ui.ScanHelpActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.cdel.accmobile.scan.ui.ScanLoadingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.cdel.accmobile.scan.ui.ScanResultActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.cdel.accmobile.scan.ui.ScanQuestionDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.cdel.accmobile.scan.ui.ScanPointDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.cdel.accmobile.daytest.DayTestMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.daytest.DayTestCalendarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.course.ui.CourseWebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.course.ui.AuditionCourseActivity"
+            android:screenOrientation="portrait" />
+        <!-- 免费资料下载Activity By cdm -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.FreeDataDownloadActivity"
+            android:screenOrientation="portrait" />
+        <!-- 扫一扫end -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.HomeExamActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.FamousTeacherDetailActivity"
+            android:screenOrientation="portrait" />
+        <!-- 写笔记页面 -->
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.WriteNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.HomeExamWebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.report.ReportActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+        <!-- QQ分享 -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1106241490" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 微博Web授权时，需要注册授权界面 -->
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <!-- 微信支付 -->
+        <activity
+            android:name="com.cdel.medmobile.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.cdel.medmobile.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="sdksample" />
+            </intent-filter>
+        </activity>
+        <!-- 摇一摇 -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.shake.ShakeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.shake.ShakeQuestionActivity"
+            android:screenOrientation="portrait" />
+        <!-- 摇一摇科目选择 -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.shake.ShakeSubjectSelectActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.NearMsgActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.NearbyUserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.NearUserInfoActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 全面屏适配 -->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
+        <!-- 自有appkey -->
+        <meta-data
+            android:name="APPKEY"
+            android:value="e458c9ac-c347-4339-8996-ed169abe7bb5" />
+
+        <!-- 友盟appkey -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="59490a184544cb2cf500014d" />
+        <!-- 渠道ID（可为空），来自移动统计后台，目前没有用到，跟友盟渠道不同，用于打渠道包 -->
+
+        <meta-data
+            android:name="com.tencent.rdm.uuid"
+            android:value="121a5979-c222-4b03-944e-17e27f6368f3" />
+
+        <!-- Message聊天IM 相关 Start ====================================================================================== -->
+
+        <activity
+            android:name="com.cdel.accmobile.message.ui.StudentMessageFragmentAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.timchat.ui.ChatActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.EditActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+
+
+        <!-- 消息收发service -->
+        <service
+            android:name="com.tencent.qalsdk.service.QalService"
+            android:exported="false"
+            android:process=":QALSERVICE" />
+        <service
+            android:name="com.tencent.qalsdk.service.QalAssistService"
+            android:exported="false"
+            android:process=":QALSERVICE" />
+        <!-- 离线消息广播接收器 -->
+        <receiver
+            android:name="com.tencent.qalsdk.QALBroadcastReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.tencent.qalsdk.broadcast.qal" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 系统消息广播接收器 -->
+        <receiver
+            android:name="com.tencent.qalsdk.core.NetConnInfoCenter"
+            android:process=":QALSERVICE" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- mipush -->
+        <service
+            android:name="com.xiaomi.push.service.XMJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":MiPushService" />
+        <service
+            android:name="com.xiaomi.push.service.XMPushService"
+            android:enabled="true"
+            android:process=":MiPushService" />
+        <service
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService"
+            android:enabled="true" />
+
+        <receiver
+            android:name="com.cdel.accmobile.timchat.utils.MiPushMessageReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.PingReceiver"
+            android:exported="false"
+            android:process=":MiPushService" >
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER" />
+            </intent-filter>
+        </receiver>
+        <!-- mipush -->
+
+
+        <!-- hwpush -->
+        <!-- 第三方相关 :接收Push消息（注册、Push消息、Push连接状态、标签，LBS上报结果）广播 -->
+        <receiver android:name="com.cdel.accmobile.timchat.utils.HwPushMessageReceiver" >
+            <intent-filter>
+
+                <!-- 必须,用于接收token -->
+                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+                <!-- 必须，用于接收消息 -->
+                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+                <!-- 可选，用于点击通知栏或通知栏上的按钮后触发onEvent回调 -->
+                <action android:name="com.huawei.android.push.intent.CLICK" />
+                <!-- 可选，查看push通道是否连接，不查看则不需要 -->
+                <action android:name="com.huawei.intent.action.PUSH_STATE" />
+                <!-- 可选，标签、地理位置上报回应，不上报则不需要 -->
+                <action android:name="com.huawei.android.push.plugin.RESPONSE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="CS_cloud_ablitity"
+                android:value="successRateAnalytics" />
+        </receiver>
+
+        <!--
+             备注：Push相关的android组件需要添加到业务的AndroidManifest.xml,
+        	 Push相关android组件运行在另外一个进程是为了防止Push服务异常而影响主业务
+        -->
+        <!-- PushSDK:PushSDK接收外部请求事件入口 -->
+        <receiver
+            android:name="com.huawei.android.pushagent.PushEventReceiver"
+            android:process=":HwPushService" >
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REFRESH_PUSH_CHANNEL" />
+                <action android:name="com.huawei.intent.action.PUSH" />
+                <action android:name="com.huawei.intent.action.PUSH_ON" />
+                <action android:name="com.huawei.android.push.PLUGIN" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.huawei.android.pushagent.PushBootReceiver"
+            android:process=":HwPushService" >
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTER" />
+                <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE" /> -->
+            </intent-filter>
+
+            <meta-data
+                android:name="CS_cloud_version"
+                android:value="\u0032\u0037\u0030\u0035" />
+        </receiver>
+
+        <!-- PushSDK:Push服务 -->
+        <service
+            android:name="com.huawei.android.pushagent.PushService"
+            android:process=":HwPushService" />
+        <!-- hwpush -->
+
+
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.SearchFriendActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.AddFriendActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.ProfileActivity" -->
+        <!-- android:launchMode="singleTask" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.ManageFriendGroupActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.VideoActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.CreateGroupActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.GroupProfileActivity" -->
+        <!-- android:launchMode="singleTask" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <activity
+            android:name="com.cdel.accmobile.timchat.ui.ImageViewActivity"
+            android:screenOrientation="portrait" />
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.SearchGroupActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.ApplyGroupActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.GroupManageMessageActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.FriendshipManageMessageActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.GroupListActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.ChooseFriendActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.GroupMemberActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.customview.DialogActivity" -->
+        <!-- android:theme="@android:style/Theme.Dialog" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.GroupMemberProfileActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.FriendshipHandleActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.AboutActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.BlackListActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <activity
+            android:name="com.cdel.accmobile.timchat.ui.ImagePreviewActivity"
+            android:screenOrientation="portrait" />
+        <!-- <activity -->
+        <!-- android:name=".timchat.ui.MessageNotifySettingActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
+
+
+        <!-- Message聊天IM 相关 End ============================================================================================================================== -->
+
+        <receiver android:name="com.cdel.accmobile.login.recevier.KickReceiver" >
+            <intent-filter android:priority="1000" >
+                <action android:name="android.intent.action.BRAOADCAST_ACTION_KICK" />
+                <action android:name="android.intent.action.BRAOADCAST_ACTION_WARNING" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 支付宝支付 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 银联 -->
+        <uses-library
+            android:name="org.simalliance.openmobileapi"
+            android:required="false" />
+
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.unionpay.UPPayWapActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.cdel.accmobile.app.ui.WebViewPostActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 极光推送 SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.cdel.medmobile" />
+            </intent-filter>
+        </activity>
+        <!-- Required  SDK核心功能 -->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- Required SDK 核心功能 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true" >
+            <intent-filter android:priority="1000" >
+
+                <!-- Required  显示通知栏 -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+
+                <category android:name="com.cdel.medmobile" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能 -->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
+
+        <!-- User defined.用户自定义的广播接收器 -->
+        <receiver
+            android:name="com.cdel.jpush.core.MessageReceiver"
+            android:enabled="true" >
+            <intent-filter>
+
+                <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <action android:name="cn.jpush.android.intent.UNREGISTRATION" />
+                <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+
+                <category android:name="com.cdel.medmobile" />
+            </intent-filter>
+        </receiver>
+        <!-- 书籍详情 -->
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.DetailsActivity"
+            android:screenOrientation="portrait" />
+        <!-- 书城分类 -->
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.BookCityClassifyActivity"
+            android:screenOrientation="portrait" />
+        <!-- 书城(暂时) -->
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.BookCityActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.ReadActivity"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name="com.cdel.accmobile.ebook.ui.CatalogAndBookMark" />
+        <!-- <activity android:name=".ebook.ui.BookCityActivity"></activity> -->
+        <activity android:name="com.cdel.accmobile.ebook.ui.DownLoadActivity" />
+        <!-- 图书下载服务 -->
+        <service android:name="com.cdel.accmobile.ebook.download.BookDownloadService" />
+        `
+        <!-- <activity android:name=".ebook.ui.BookCityActivity"></activity> -->
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.DetailsWebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.MyBookShelfActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.jpush.ui.MsgDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.message.ui.activities.ConnectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.MyInfoWebActhivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.SchoolStudyPlanActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Required，渠道. Enable it you can get statistics data with channel -->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="website" />
+        <!-- 极光测试key:12eab372b9d4cfde9010d400 -->
+        <!-- 测试账号：18643073124@163.com   bnm1314520 -->
+        <!-- 正式key: a8e9fcb1226e2a9547512acb -->
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="7f6791a84328ee86d1729585" />
+        <meta-data
+            android:name="CHANNELID"
+            android:value="" />
+        <!-- 网盟ID （可为空），网盟后台生成，区分代理商，用于推广时区分注册人属于谁，用于给代理商打包 -->
+        <meta-data
+            android:name="UNIONID"
+            android:value="127" />
+        <!-- 友盟渠道 -->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="agent127" />
+
+        <!-- 诸葛IO appKey -->
+        <meta-data
+            android:name="ZHUGE_APPKEY"
+            android:value="162e445374a24c1a956ab77c8f339aaf" />
+        <!-- 诸葛IO channel -->
+        <meta-data
+            android:name="ZHUGE_CHANNEL"
+            android:value="yxdw" />
+        <!-- 诸葛IO 会话间隔 默认为30秒 -->
+        <meta-data
+            android:name="com.zhuge.config.SessionInterval"
+            android:value="30" />
+        <!-- 诸葛IO 触发上传记录数 默认为5条 -->
+        <meta-data
+            android:name="com.zhuge.config.UploadLimit"
+            android:value="5" />
+        <!-- 诸葛IO 数据上传间隔 默认为5秒 -->
+        <meta-data
+            android:name="com.zhuge.config.FlushInterval"
+            android:value="5" />
+        <!-- 诸葛IO 本地最大记录缓存数 -->
+        <meta-data
+            android:name="com.zhuge.config.MaxLocalSize"
+            android:value="500" />
+
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.BookShelfIsbuyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.EbookHintBuyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.EBookCateLogActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.cdel.accmobile.personal.activity.CouponActivity" />
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.PublishSpeechActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.util.PersonDialog"
+            android:theme="@style/FullHeightDialog" />
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.OtherClassifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.FreeBookActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- epub电子书 -->
+        <activity android:name="com.cdel.accmobile.ebook.epubread.ui.HighlightListActivity" />
+        <activity android:name="com.cdel.accmobile.ebook.epubread.ui.ContentHighlightActivity" />
+        <activity
+            android:name="com.cdel.accmobile.ebook.epubread.ui.FolioActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 测试入口 -->
+        <activity android:name="com.cdel.accmobile.ebook.ui.ReadTestActivity" />
+
+        <!-- TXT电子书  Autolayout适配 -->
+        <meta-data
+            android:name="design_width"
+            android:value="1080" />
+        <meta-data
+            android:name="design_height"
+            android:value="1920" />
+
+        <activity
+            android:name="com.cdel.accmobile.ebook.txtread.ReadTxtActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name="com.cdel.accmobile.ebook.txtread.TxtMarkActivity" />
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.FreeBookDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.EbookDetailsZzfw"
+            android:screenOrientation="portrait" />
+        <!-- 广告的Dialog -->
+        <activity
+            android:name="com.cdel.accmobile.home.utils.AdvertisementDialog"
+            android:launchMode="singleTop"
+            android:theme="@style/FullHeightDialog" />
+        <activity
+            android:name="com.cdel.accmobile.home.activities.AdvertisementH5Activity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.cdel.accmobile.school.ui.MakeUpLessonReasonActivity" />
+        <activity
+            android:name="com.cdel.accmobile.school.ui.ScheduleDescribeH5Activity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.taxrule.activity.TaxClumeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.taxrule.activity.TaxDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.taxrule.activity.InputKeywordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.taxrule.activity.SearchDateSelectActivity"
+            android:screenOrientation="portrait" />
+        <!-- 搜索主界面 -->
+        <activity
+            android:name="com.cdel.accmobile.taxrule.activity.SearchMainActivity"
+            android:screenOrientation="portrait" />
+        <!-- 搜索结果列表 -->
+        <activity
+            android:name="com.cdel.accmobile.taxrule.activity.SearchResultAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.taxrule.activity.AreaListActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <!-- 分类下法规列表 -->
+        <activity
+            android:name="com.cdel.accmobile.taxrule.activity.ClassesListActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+
+        <!-- 百度定位服务 -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" />
+            </intent-filter>
+        </service>
+
+        <!-- 测试 -->
+        <!--
+            <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="mzjjd22LqanzLIAOVN4jWcQAGVvrlRW4" />
+        -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="kRBumrbK8ikYOxsQmgZ92az2ozdiTPTF" />
+        /////////////////////////////////////////////////继续教育开始//////////////////////////////////////////
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.JijiaoH5Activity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.PersonalWebActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 登录页面 -->
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.LoginActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 地区列表页 -->
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.RegionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.CourseFreeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 我的课程页面 -->
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.CourseActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.SubjectActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.InstrutionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 下载课程页面 -->
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.DownloadCoursesActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <!-- 下载章节页面 -->
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.DownloadVideoActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <!-- 历史记录页面 -->
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.HistoryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.HistoryRecordActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.VideoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 我的 -->
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.PersonalInfoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 视频播放页面 -->
+        <activity
+            android:name="com.cdel.accmobile.jijiao.player.JijiaoPlayerActivty"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="landscape"
+            android:theme="@style/Player" />
+        <!-- 设置页面 -->
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.ProtocolActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.exam.ui.ExamBaseCenterActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.exam.ui.StartExamActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.exam.ui.AnswerCardActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.exam.ui.AnswerResultActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.exam.ui.ExamRecordActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.exam.ui.SelectExamActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.exam.ui.ExamDecriptionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.exam.ui.AnswerResultDescriptionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 下载服务 -->
+        <service android:name="com.cdel.accmobile.jijiao.download.JijiaoDownloadService" />
+
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.FlowActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.ContinueEduHomeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.CourseProcessActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.jijiao.ui.CourseProcessDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        //////////////////////////////////////////////继续教育结束///////////////////////////////////////////
+        <activity
+            android:name="com.cdel.accmobile.coursefree.activity.CourseFreeSubjectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.coursefree.activity.ChooseClassBuyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.coursefree.activity.ChooseClassDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.coursefree.activity.CoureFreeWebActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.coursefree.activity.CourseFreeMainActivity"
+            android:screenOrientation="portrait" />
+        <!-- 招行直连一网通 start -->
+        <service
+            android:name="cmb.pb.cmbsafe.CmbService"
+            android:exported="false" />
+
+        <activity
+            android:name="cmb.pb.ui.PBKeyboardActivity"
+            android:theme="@style/CmbDialogStyleBottom" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.CmbWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.app.ui.WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 用于统一数据提交 -->
+        <service android:name="com.cdel.datamanager.CdelDataService" />
+        <!-- 招行直连一网通 end -->
+
+
+        <!--
+                正式需要替换
+                正式 App ID: 24574530-1
+                正式 App Secret：19c3189c05bfebecf79f11e3b4c67b6f
+                正式 RSA密钥：MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCZS9lsB7UXvZgup8wqkzrSG0ZOZOHEesxztIIMyfux/Cb0zJuoMGi9ysyK9dYHAsRVM85tW9Sl6QcOZyjIUK4DlJxXRStO04abBVor60bFGaU4nFfA13wEaiN3EJtpScWtls/lpyQZZQINEZfvgi7sk6bcRy8Um6lrfHHlqPfkWfDc0F6HOj8KGaVerL6n9UJoCV1MoF18+p7L74qVsjUye0JR71cy4d+NlYtSgRL7XUawlNQV9wOdJAaYKlI5nHymiYsfAxgLq3ocAK0pPkDxXfWOAYsg9Bv4hRUBFA7PITF1TH7DAQGMrFN0HvwVYjTzGfAafiE/nQUGwP20b+TJAgMBAAECggEAVXtPTYdqu0dVEkcteVxKQ5lD9jkZEBgt5CN3FayYNuLV0lI6RmpgLd1le+OkKpqnYp+V77Nye+XasnRh8HnU31hCagO/J6Cagd1VMAJtn0EyucOsx3Mhy9Bn4GAZWXfyzF65pWUzoxmJMEJsR/l/MxsOw+zJ2yMGMVLerGMxgFqti5PuqlapfbTCm3slC8OwzArzHnSl33EyLTkh/gUntDdoXZ0XQUVD8m4OJzaMLwoknBE+Hmn2Aq/Pfl0dD7mRrnAIbXeHr9niIj7W78d6kuPzpuD1ubu6324w39DoeRTCq39R71X6xV98LzCzeCMjY1Il7KeV7TrvelTPfJ3zFQKBgQDU743BVMVGyLb5CqvIVszqtVkI7jAqDUiD+6Q/b7TXPXdNN7mGHjePKZt4XapGHifvU1DLTU2MEuMf7eG9gKdqAl1fuMko6P289oHcjFpM+joJ+FDjjLOQAFudV6B4VKzYqJUR4e2ThLikgE353ZyCvPkgXVjo3injN8fIvmZLBwKBgQC4TIv2XNXSq7FIIg8075fKB4zFTwWTFv15kXTfxEg2Bo/2qhO1wim8DbBAKH8Z4XGzB/WKkavzZiaTIrXV/y274jC7E5925BIHyqA6TtK30whUnOFFwzfHeCFIi7sF/fOt/IawJOungVAThr+YsdorEtU5osD1r88wCK3cmKLNrwKBgBABSYhklMdzQr2JXcwbKh/iLaUMMjaW9QJmobva657aEeON8rXwA4ERQYxUjf3jOmE0w/fkAZYrvUKjILqbtvmy383YF9apXJkddjlbm1X54O7q6TmRU9XZEQnMklU5GBzY3wuPDcpuyWoj8rh7Pc5d4ePa4FnwiPl5Md0W4p11AoGBAKD4MrMOaK/lyCUBopiQv9n0eC6Jk4viY6f/tL4Q+SU+3BUMfcSd/sfCiPOwqzrWnvFI/Vx3WWFxEjYm9f0gMTjOGdP8EqbMEzd88i+bUw69oqQMlfHRzXFKan+rk8FrCqAnVRiaVr1qA5/abJQYmz5N57C8h57PXL5OhlSLeH7/AoGAIZFDJGm6e3a4Axl6zmcT/ttuQwi9Vzsa6zxTbDifgN21MkILjbCTbpS3t50SAoHxwJFY5MT25t8H8YcqXq+HzrziplX5WNTXuH7eMqt74j6zoeZ/58kSFgf+spGwXUXwp1pw0g5KXa+jSFC5O8ThboR84dQ6bypmRVYxrJavYfE=
+        -->
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="24815296-1" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="f7da15c002457c09c7ba9145be7a9797" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDZLk7LtLz/0LEFzgzHY3NsPfyIOVW+ypQ8YJ+HWIVEPSJbOVG2IDIkak06He6O594ryyEc+ubcgez5EgxywaN/GRfzHkhVFhEMB4OkOQxnObrSet1+PJV30VM6+5zZrHjVnOwj0KaSt4hOhtK4y0K6UVEcYxL5GLHkOQFoy3vjrDS7H2WZPwFKsbCN3AQalFYo981nc7BBXXCxD3UJPeRuqImg+CmGJi/9dxHuJRHzsyn0qAbfGEkmccRrqLGDgJqp1KarShuZnsCCHmiqxMNN8qfy6Gc/7gjjeOUuAS26zX+v4OEcB+rB8MCMRGCE24DmK2S+PmrMHE1mBtSADu6LAgMBAAECggEADYpbk0vDdNeYEdqU5WGH8rmyovOgKvMKZvFHQPL97BE7sSBTvd0oAyk1g2gWVYaTTXuuptXlyt223piHeigkf2obGidLLzLfATb+uCBua4kn4rOSV6qDTyMX41eIofGk3vyXpGv/1qnmr66sOKVDlcY4HmL27dziSm5bbiMxqDIY5uvUZUOWs5hp5+UnhshwbC9kpAjZSCpMjBjowBfQwom6bpP2x318hpPNioe00Sl/y2uOF3Z+jKAWXXCQ/qHm31TkqXWjFn9nY47jkwToXes+1kMaFwQujU6qzEMdQWhdjhZdykLPGNUin5Q+V4i+tBD393Uwd9wmwrHQdpkR4QKBgQD8gosc4rD0fQq2IKgeUg0/xtCME3szruDKD4cGrfU7MTtz9ra5SRxsc+eDhkEZxA5hBaeJHijHl/xXK5NOlsL5QCKhX2Cs6fmU1XNDRtz7305m+3PXPuAGY6eCBMROStA7od9PuYMTuEyE03NeUBndKlgUI3pLSM81EgXYlf/WqQKBgQDcLsJwfernY1KtuFHhxway2fUUwUT3TvkpDLQcF9VzljzH9MmvrWvAhqh8Fx2GmsKsTmaFVWLpfYCkaiDDFajcWsx17KkduuRU9xU1j3tNdS6LTcuAtZqBNzB86ncLgy9T8LCArgp00f28Xco/PnZQ2wwTjcmEEVv3shKUYsIAEwKBgQCZyT/EZePz4zvk1FrPrJVZJFLbHPpJ7dYF+hL4ZHYYiNF2vOloSzi+bJCxr9BySs+fE3yHrBCWDuCmjml20acJeqAcvCP6670Pgjhi3wOzersbSUWx8B8shQD91L1iGXpc9yc0PP2xwusHcmivJgW6hxGBomHW/A8GeWWKFUDtkQKBgEYlg36xLvg+tWVw9m02qhSqyaCuHhmoCEsip/LXSQKFF6Igg2y7lDuG6wB1oMt0XJbmd1T9KgD3Ide/k+Zy7RQevUrIdexp0TqcaR5iMscvkP+CblX4BVwrSABT9k8toRNd9+1XBS/IgszTGI7jiHAkCQnlvxCbMzCLg83QVLwPAoGBALrGs/OC0KZTlaC72JM2f8JW8zHs+XYmVfiJq9mTDktEeInuOrMJKW1eLqqIhcDeeMADAc/f5CfqfT9ycNKjtWpnjAXGSMg+8VXJKi2o3y1S7bGxM9Y2euWGaeTWJjZtZbClbUDcaySTfv60qQmiyJbzQ5ANA365o5g2SY3gca0I" />
+        <!-- 网页跳转App后打开的网页 -->
+        <activity
+            android:name="com.cdel.accmobile.app.ui.WebJumpAppWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.ShareWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 帖子详情的Activity,使用singleTop启动模式,解决拦截后打开两个该界面的问题 -->
+        <activity
+            android:name="com.cdel.accmobile.home.activities.ForumBankActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <!-- 学习报告H5 -->
+        <activity
+            android:name="com.cdel.accmobile.report.LearnReportActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.shopping.activities.CustomerPickUpActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+
+        <!-- 大数据上传服务 -->
+        <service android:name="com.cdel.accmobile.app.allcatch.UpLoadAllCatchDataService" />
+
+        <!-- 搜索 -->
+        <activity
+            android:name="com.cdel.accmobile.search.activitys.SearchWordsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.search.activitys.SearchDetailsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!-- 新版题库相关Activity -->
+
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.evaluate_and_oraise.MyEvaluateActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.evaluate_and_oraise.MyPraiseActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.evaluate_and_oraise.StudentEvaluateActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.evaluate_and_oraise.StudentEvaluateDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+
+        <!-- 做题部分开始 -->
+        <activity
+            android:name="com.cdel.accmobile.newexam.utils.NewExamQuestionDialog"
+            android:launchMode="singleTop"
+            android:theme="@style/FullHeightDialog" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.AnswerResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.chapaterexam.ChapterExpandListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.fullexam.HighFrequencyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.fullexam.OverYearPaperActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.topfunction.ErrAndFavActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.fullexam.FullExamPaperActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.KnowledgePointActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.doquestion.NewExamDoQuestionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.chapaterexam.SelfHelpSectionPointActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.chapaterexam.ModificationPaperParameterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.topfunction.AnswerForumActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.topfunction.AnswerEssenceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.chapaterexam.GraspAdvanceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.topfunction.FallibilityActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Global" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.paperless_practical.PaperLessAndPracticalActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.topfunction.DoQuestionRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.fullexam.WeakNessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.QBankFreeHomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.QBankSelectTutorshipActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.chapaterexam.GraspSeekActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.chapaterexam.GraspSeekDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.topfunction.DoQuesRecordOffLineActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.DoQuesRecordOffLineDialog"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullHeightDialog" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.utils.oldutils.ImageZoomAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.ShowImageActivity"
+            android:screenOrientation="portrait" />
+        <!-- 老题库未完成 -->
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.olddatadeal.OldQuesRecordActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!-- 整卷练习下载题库服务 -->
+        <service android:name="com.cdel.accmobile.newexam.task.NewExamPaperCenterService" />
+
+        <activity
+            android:name="com.cdel.accmobile.newexam.ui.recommend.RecommendDialog"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullHeightDialog" />
+
+        <!-- 获取奖励的弹窗 -->
+        <activity
+            android:name="com.cdel.accmobile.personal.activity.RewardsDialog"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullHeightDialog" />
+        <!-- 新版题库相关Activity  end -->
+
+        <activity android:name="com.cdel.accmobile.message.ui.activities.NewMessageActivity" />
+        <activity
+            android:name="com.cdel.accmobile.ebook.ui.BookShlfActivity"
+            android:screenOrientation="portrait" />
+        <!-- 绑定手机号 -->
+        <activity
+            android:name="com.cdel.accmobile.notice.ui.BindingPhoneWebActivity"
+            android:screenOrientation="portrait" />
+        <!-- 人脸识别相关 开始 -->
+        <activity
+            android:name="com.cdel.accmobile.facedetect.activity.RecognitionActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.facedetect.activity.StartFaceActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.facedetect.activity.CdelFaceDetectActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.facedetect.activity.GetBindPhoneCodeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.facedetect.activity.FaceRecognitionPhoneActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 人脸识别相关 结束 -->
+        <!-- 地图 定位 -->
+        <activity
+            android:name="com.cdel.accmobile.map.LocationActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.map.SearchPositionActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 面授班 -->
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.FaceSchoolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.sigin.FaceChooseClassActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.sigin.FaceQrActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.sigin.FaceSiginResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.sigin.LeaveCheckActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.schedule.FaceScheduleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.schedule.FaceStudyPlanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.sigin.FaceStudentScanResultActivity"
+            android:screenOrientation="portrait" />
+        <!-- android:theme="@style/custom_dialog2" -->
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.schedule.FaceStudentLeaveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.connect.FaceStudentConnectActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.message.FaceTeacherMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.message.FaceStudentMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.message.FaceMessageDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.connect.FaceVisitRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.notify.FaceWriteNotifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.notify.FaceSelectClassActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.notify.FaceSelectStudentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.notify.FaceSelectLeaveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.utils.FaceImageZoomAct"
+            android:screenOrientation="portrait" />
+
+        <!-- 面授班结束 -->
+        <!-- 面授班做题界面 -->
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.doquestion.PracticeQuestionsActivity"
+            android:screenOrientation="portrait" />
+        <!-- 每日一练/每周一练 -->
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.doquestion.FaceWeekOrMonthPracticeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.doquestion.OnceRankingListActivity"
+            android:screenOrientation="portrait" />
+        <!-- 新直播开始 -->
+        <!-- 新直播 -->
+        <activity
+            android:name="com.cdel.accmobile.newliving.activity.living.NewLivePlayActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- android:windowSoftInputMode="adjustResize|stateHidden" -->
+
+        <activity
+            android:name="com.cdel.accmobile.newliving.activity.living.LiveLoadingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/liveLoginDialogstyle" />
+
+        <!-- 我的、我的直播课 -->
+        <activity
+            android:name="com.cdel.accmobile.newliving.activity.living.MyNewLiveClassActivity"
+            android:screenOrientation="portrait" />
+        <!-- 监听网络变化的广播 -->
+        <!-- <receiver android:name=".newliving.receiver.NetWorkStateReceiver"> -->
+        <!-- </receiver> -->
+        <!-- 没有文档的直播界面 -->
+        <activity
+            android:name="com.cdel.accmobile.newliving.activity.living.NewLivePlayNoDocViewActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 课程安排H5界面 -->
+        <activity
+            android:name="com.cdel.accmobile.newliving.activity.living.NewLiveClassArrangeH5Activity"
+            android:screenOrientation="portrait" />
+        <!-- 回看界面 -->
+        <activity
+            android:name="com.cdel.accmobile.newliving.activity.replay.NewLiveRePlayActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 无文档的录播界面 -->
+        <activity
+            android:name="com.cdel.accmobile.newliving.activity.replay.NewLiveReplayNoDocViewActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 录播章节目录界面 -->
+        <activity
+            android:name="com.cdel.accmobile.newliving.activity.replay.RePlayChapterActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.newliving.activity.localreplay.NewLiveLocalReplayActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.course.ui.ReDownloadVideoActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 新直播结束 -->
+        <activity
+            android:name="com.cdel.accmobile.hlsplayer.activity.RePlayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/playerTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.doquestion.SumRankingListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.doquestion.FaceDoQuestionReportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.message.FaceMessageListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cdel.accmobile.faceschool.activity.doquestion.StudyScheduleActivity"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="com.cdel.dlupdate.UpdateFileProvider"
+            android:authorities="com.cdel.medmobile.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/new_app_file_paths" />
+        </provider>
+
+        <service android:name="com.cdel.dlupdate.service.DownloadService" />
+
+        <receiver android:name="com.cdel.musicplayer.reciver.DLNotificationReciver" />
+
+        <activity
+            android:name="io.vov.vitamio.activity.InitActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.cedl.questionlibray.phone.ui.QuestionMainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.cedl.questionlibray.phone.ui.SearchActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.cedl.questionlibray.message.ui.QuestionMessageListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity> <!-- ======================我的、专家======start====================== -->
+        <!-- 我的主界面 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.PersonalActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" >
+        </activity> <!-- 课程列表 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.CourseListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- 我提问过的 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.MyAskedListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- TA提问过的 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.OtherAskedListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- 回答过的 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.AnsweredListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- 看过的 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.ReadListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- 受邀回答 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.BeInvitedListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- 关注的列表 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.AttentionPeopleListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- 话题列表 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.AttentionTopicListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- 申请认证 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.ApplyCertificateActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- 个人信息 编辑、查看 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.EditPersonalInfoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- 编辑信息界面 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.EditActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- 详细简介界面 -->
+        <activity
+            android:name="com.cedl.questionlibray.mine.ui.InfoDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" /> <!-- ======================我的、专家========end====================== -->
+        <activity
+            android:name="com.cedl.questionlibray.phone.ui.WaitAnswerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.cedl.questionlibray.topic.ui.TopicDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.cedl.questionlibray.ask.ui.AskTeacherListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.cedl.questionlibray.ask.ui.AskMainActicity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.cedl.questionlibray.faqcontent.activity.FaqJubaoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.cedl.questionlibray.faqcontent.activity.FaqDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.cedl.questionlibray.ask.ui.AskTopicActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cedl.questionlibray.ask.ui.AskPayActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cedl.questionlibray.faqcontent.activity.AskRefuseActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cedl.questionlibray.faqcontent.activity.FaqAnserListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cedl.questionlibray.ask.localimage.activities.LocalImageAlbumActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cedl.questionlibray.ask.localimage.activities.LocalImagePickerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cedl.questionlibray.faqcontent.activity.FaqTeacherReAnserActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="com.taobao.sophix.aidl.DownloadService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.taobao.hotfix.action" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.cdel.medmobile.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name="com.darsh.multipleimageselect.activities.AlbumSelectActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/MultipleImageSelectTheme" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.darsh.multipleimageselect.activities.ImageSelectActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/MultipleImageSelectTheme" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.squareup.leakcanary.internal.HeapAnalyzerService"
+            android:enabled="false"
+            android:process=":leakcanary" />
+        <service
+            android:name="com.squareup.leakcanary.DisplayLeakService"
+            android:enabled="false" />
+
+        <activity
+            android:name="com.squareup.leakcanary.internal.DisplayLeakActivity"
+            android:enabled="false"
+            android:icon="@drawable/leak_canary_icon"
+            android:label="@string/leak_canary_display_activity_label"
+            android:taskAffinity="com.squareup.leakcanary"
+            android:theme="@style/leak_canary_LeakCanary.Base" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.squareup.leakcanary.internal.RequestStoragePermissionActivity"
+            android:enabled="false"
+            android:icon="@drawable/leak_canary_icon"
+            android:label="@string/leak_canary_storage_permission_activity_label"
+            android:taskAffinity="com.squareup.leakcanary"
+            android:theme="@style/leak_canary_Theme.Transparent" />
+
+        <provider
+            android:name="com.amitshekhar.DebugDBInitProvider"
+            android:authorities="com.cdel.medmobile.DebugDBInitProvider"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+
+</manifest>
