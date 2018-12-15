@@ -67,6 +67,59 @@ def generate_qrcode_image(download_url, server_bundle_folder):
 	img = qr.make_image()	
 	img.save(img_code_path)
 
+def detact_apk_output_path(project_directory):
+	# 检查目录是否有效
+	if os.path.exists(project_directory) == False:
+		return None
+	# 首先优先探测app目录
+	target_path = project_directory + '/app/build/outputs/apk'
+	apk_folder_path = search_apk_path(target_path)
+	if apk_folder_path != None:
+		print "find apk output path:" + apk_folder_path
+		return apk_folder_path
+	# 查找输出目录下的子文件夹
+	listdir = os.listdir(project_directory)
+	for t_dir in listdir:
+		if t_dir.startWith('build') == True:
+			continue
+		target_path = project_directory + os.sep + t_dir + '/build/outputs/apk'
+		# 过滤文件
+		if os.path.isdir(target_path) == False:
+			continue
+		# 查找APK目标
+
+		apk_folder_path = search_apk_path(target_path)
+		if apk_folder_path != None:
+                	print "find apk output path:" + apk_folder_path
+                	return apk_folder_path
+	return None	
+
+# 当前目录或者父目录对应的查找APK目录
+def search_apk_path(project_directory):
+	# 文件夹是否存在
+	if os.path.exists(project_directory) == False:
+		return None
+        # 首先优先探测app目录
+        if has_apk_file(project_directory) == True:
+                return project_directory
+
+        # 查找低版本路径
+        apk_folder_path = os.path.dirname(project_directory)
+	print "parent path:" + apk_folder_path
+	if has_apk_file(apk_folder_path) == True:
+		return apk_folder_path
+	# 未找到返回None
+	return None
+		
+
+def has_apk_file(output_directory):
+	if os.path.exists(output_directory):
+		for fn in glob.glob(output_directory + os.sep + '*.apk'):
+                        print fn
+                        # 查找一个有效的包
+                        return True
+	return False
+
 
 def deloy_mapping_file(build_output_directory, target_directory):
 	print 'find and copy mapping file to target directory\n'
@@ -163,6 +216,10 @@ def deliver_app(arguments):
         #        		print "file_parent : {0}".format(file_parent)
         #    		except Exception, e:
         #        		print "Exception", e
+	project_direcoty = '/home/dell/DEV/project/accmobile'
+	apk_folder_directory = detact_apk_output_path(project_direcoty)
+	if apk_folder_directory != None and len(apk_folder_directory) > 0:
+		print 'find apk directory success:' + apk_folder_directory
 
 	target_directory = '/home/t1/jenkins/workspace/accmobile-git/builds'
 	deloy_mapping_file(build_output_directory, target_directory)
