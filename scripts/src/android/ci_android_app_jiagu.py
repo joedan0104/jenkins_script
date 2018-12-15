@@ -309,7 +309,9 @@ def deliver_from_config(project_config_path, projectname):
 		raise "fastlane excute failed"
 	print '222222222222222222222222'
 	# copy apk文件到输出目录(兼容渠道打包)
-	apk_folder_path = project_path + '/app/build/outputs/apk'
+	apk_folder_path = detact_apk_output_path(project_path)
+	if apk_folder_path == None:
+		raise "not find output directory"
 	listdir = os.listdir(apk_folder_path)
 	apk_file = ''
 	for t_dir in listdir:
@@ -361,7 +363,7 @@ def deliver_from_config(project_config_path, projectname):
 	
 	print '4444444444444444444444444'
 	# 部署mapping文件
-	mapping_folder_path = project_path + 'app/build/outputs/mapping'
+	mapping_folder_path = os.path.dirname(apk_folder_path) + os.sep + 'mapping'
 	deloy_mapping_file(mapping_folder_path, output_directory)
 
 	# 生成文件部署到nginx
