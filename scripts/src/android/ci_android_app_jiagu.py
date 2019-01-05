@@ -74,19 +74,26 @@ def init_app(arguments):
 		raise 'current path is not an android project'
 
 	project_build_path = project_path + '/builds'
-	if os.path.exists(project_build_path) == False:		
+	if os.path.exists(project_build_path) == False:
 		# 创建build文件夹
 		os.system('mkdir ' + project_build_path)
 
-		# copy 配置文件
-		ci_config_path = CI_ANDROID_TEMPLATES_PATH + '/config.json'
-		copy_cmd = r'cp %s %s' % (ci_config_path, project_build_path)
+	if os.path.exists(project_build_path) == False:
+		raise 'could not create builds path'
+
+	# copy 配置文件
+	ci_config_path = CI_ANDROID_TEMPLATES_PATH + '/config.json'
+	project_config_path = project_build_path + '/config.json'
+	if os.path.exists(project_config_path) == False:
+		copy_cmd = r'cp %s %s' % (ci_config_path, project_config_path)
 		#print copy_cmd
 		os.system(copy_cmd)
 
-		# copy download.html
-		ci_download_path = CI_ANDROID_TEMPLATES_PATH + '/download.html'
-		copy_cmd = r'cp %s %s' % (ci_download_path, project_build_path)
+	# copy download.html
+	ci_download_path = CI_ANDROID_TEMPLATES_PATH + '/download.html'
+	project_download_path = project_build_path + '/download.html'
+	if os.path.exists(project_download_path) == False:
+		copy_cmd = r'cp %s %s' % (ci_download_path, project_download_path)
 		os.system(copy_cmd)
 
 		# copy info.plist
@@ -152,7 +159,8 @@ def deliver_app(arguments):
 	print project_fastlane_path
 	project_config_path = project_build_path + '/config.json'
 	print project_config_path
-	if os.path.exists(project_build_path) == False or os.path.exists(project_fastlane_path) == False or os.path.exists(project_config_path) == False :
+	project_download_path = project_build_path + '/download.html'
+	if os.path.exists(project_build_path) == False or os.path.exists(project_fastlane_path) == False or os.path.exists(project_config_path) == False or os.path.exists(project_download_path) == False :
 		init_app(arguments)
 
 	# 实时更新config.json模板(fix: 防止模板更新后参数丢失问题)
