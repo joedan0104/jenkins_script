@@ -386,7 +386,7 @@ def detact_apk_output_path(project_directory):
 	# 查找输出目录下的子文件夹
 	listdir = os.listdir(project_directory)
 	for t_dir in listdir:
-		if t_dir.startWith('build') == True:
+		if t_dir.find('build') != -1:
 			continue
 		target_path = project_directory + os.sep + t_dir + '/build/outputs/apk'
 		# 过滤文件
