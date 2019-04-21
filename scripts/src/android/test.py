@@ -80,7 +80,7 @@ def detact_apk_output_path(project_directory):
 	# 查找输出目录下的子文件夹
 	listdir = os.listdir(project_directory)
 	for t_dir in listdir:
-		if t_dir.startWith('build') == True:
+		if t_dir.find('build') != -1:
 			continue
 		target_path = project_directory + os.sep + t_dir + '/build/outputs/apk'
 		# 过滤文件
@@ -147,11 +147,13 @@ def deloy_mapping_file(build_output_directory, target_directory):
 						# release目录需要继续查找父目录作为渠道标识
 						file_parent = os.path.dirname(file_parent)
 						sub_file = os.path.basename(file_parent)
-					target_file_name = r'%s_%s' % (sub_file, file)
-					target_file_name = target_directory + os.sep + target_file_name
+					#target_file_name = r'%s_%s' % (sub_file, file)
+					target_file_name = target_directory + os.sep + file
 					print target_file_name
 					copy_cmd = r'cp %s %s' % (file_path, target_file_name)
 					os.system(copy_cmd)
+					print copy_cmd
+					return
                         except Exception, e:
                                 print "Exception", e
  
@@ -175,14 +177,14 @@ def deliver_app(arguments):
 	gradle_properties =  GradleProperties(gradle_property_path)
 
 	# 测试AndroidMainifest编辑
-	manifest = r'/home/dell/DEV/developer/jenkins_script/scripts/src/android/AndroidManifest.xml'
-	manifest_editor = ManifestEditor(manifest)
-	content = manifest_editor.readManifest()
-	content = manifest_editor.replace_meta_data('UMENG_CHANNEL', 'agent127', content)
-	content = manifest_editor.replace_meta_data('UNIONID', '127', content)
-	print content 
-	success = False
-	success = manifest_editor.saveManifest()
+	#manifest = r'/home/dell/DEV/developer/jenkins_script/scripts/src/android/AndroidManifest.xml'
+	#manifest_editor = ManifestEditor(manifest)
+	#content = manifest_editor.readManifest()
+	#content = manifest_editor.replace_meta_data('UMENG_CHANNEL', 'agent127', content)
+	#content = manifest_editor.replace_meta_data('UNIONID', '127', content)
+	#print content 
+	#success = False
+	#success = manifest_editor.saveManifest()
     #if !success:
     #    print 'saveManifest failed'
     #else:
@@ -194,7 +196,7 @@ def deliver_app(arguments):
 	gradle_properties.saveProperties()
 
 	print 'find mapping file'
-	build_output_directory = '/home/t1/jenkins/workspace/accmobile-git/app/build/outputs/mapping'
+	build_output_directory = '/home/dell/DEV/project/accmobile/app/build/outputs/mapping'
 	#for root, dirs, files in os.walk(build_output_directory, True, None, False):
         #	print'\n========================================'
         #	print "root : {0}".format(root)
@@ -221,7 +223,9 @@ def deliver_app(arguments):
 	if apk_folder_directory != None and len(apk_folder_directory) > 0:
 		print 'find apk directory success:' + apk_folder_directory
 
-	target_directory = '/home/t1/jenkins/workspace/accmobile-git/builds'
+	target_directory = '/home/dell/DEV/project/accmobile/builds'
+	copy_cmd = r'mkdir %s' % (target_directory)
+	os.system(copy_cmd)
 	deloy_mapping_file(build_output_directory, target_directory)
 
 	print 'install apk file\n'

@@ -74,19 +74,26 @@ def init_app(arguments):
 		raise 'current path is not an android project'
 
 	project_build_path = project_path + '/builds'
-	if os.path.exists(project_build_path) == False:		
+	if os.path.exists(project_build_path) == False:
 		# 创建build文件夹
 		os.system('mkdir ' + project_build_path)
 
-		# copy 配置文件
-		ci_config_path = CI_ANDROID_TEMPLATES_PATH + '/config.json'
-		copy_cmd = r'cp %s %s' % (ci_config_path, project_build_path)
+	if os.path.exists(project_build_path) == False:
+		raise 'could not create builds path'
+
+	# copy 配置文件
+	ci_config_path = CI_ANDROID_TEMPLATES_PATH + '/config.json'
+	project_config_path = project_build_path + '/config.json'
+	if os.path.exists(project_config_path) == False:
+		copy_cmd = r'cp %s %s' % (ci_config_path, project_config_path)
 		#print copy_cmd
 		os.system(copy_cmd)
 
-		# copy download.html
-		ci_download_path = CI_ANDROID_TEMPLATES_PATH + '/download.html'
-		copy_cmd = r'cp %s %s' % (ci_download_path, project_build_path)
+	# copy download.html
+	ci_download_path = CI_ANDROID_TEMPLATES_PATH + '/download.html'
+	project_download_path = project_build_path + '/download.html'
+	if os.path.exists(project_download_path) == False:
+		copy_cmd = r'cp %s %s' % (ci_download_path, project_download_path)
 		os.system(copy_cmd)
 
 		# copy info.plist
@@ -152,7 +159,8 @@ def deliver_app(arguments):
 	print project_fastlane_path
 	project_config_path = project_build_path + '/config.json'
 	print project_config_path
-	if os.path.exists(project_build_path) == False or os.path.exists(project_fastlane_path) == False or os.path.exists(project_config_path) == False :
+	project_download_path = project_build_path + '/download.html'
+	if os.path.exists(project_build_path) == False or os.path.exists(project_fastlane_path) == False or os.path.exists(project_config_path) == False or os.path.exists(project_download_path) == False :
 		init_app(arguments)
 
 	# 实时更新config.json模板(fix: 防止模板更新后参数丢失问题)
@@ -247,12 +255,12 @@ def deliver_from_config(project_config_path, projectname):
         build_version_code = get_config_value(config_data, 'build_version_code')
 	build_type = get_config_value(config_data, 'build_type')
 	build_time = get_config_value(config_data, 'build_time')
+	channel_name = get_config_value(config_data, 'channel')
 	gradle_properties =  GradleProperties(gradle_property_path)
 	gradle_properties.readProperties()
 	output_directory = get_config_value(config_data, 'output_directory')
-	output_name = r'%s_V%s_%s_%s.apk' % (app_name, version_name, build_type, build_time)
+	output_name = r'%s_V%s_%s_%s_%s.apk' % (app_name, version_name, build_type, channel_name, build_time)
 	# 多渠道打包功能适配
-	channel_name = get_config_value(config_data, 'channel')
 	assemble_type = ''
 	if cmp(channel_name, 'all') == 0:
 		assemble_type = 'assemble'
@@ -324,11 +332,6 @@ def deliver_from_config(project_config_path, projectname):
 	if apk_file == '':
 		raise "not found apk file"
 
-	# 生成标准的输出文件用于二维码下载
-	deloy_qrcode_apk_file(output_directory, output_name, channel_name)
-	apk_qr_path = output_directory + os.sep + output_name
-	if os.path.exists(apk_qr_path) == False:
-		raise 'can not generate qrcode apk file'
 	print '3333333333333333333333333'
 	channel_name = get_config_value(config_data, 'channel')
         # 关闭加固
@@ -383,7 +386,7 @@ def detact_apk_output_path(project_directory):
 	# 查找输出目录下的子文件夹
 	listdir = os.listdir(project_directory)
 	for t_dir in listdir:
-		if t_dir.startWith('build') == True:
+		if t_dir.find('build') != -1:
 			continue
 		target_path = project_directory + os.sep + t_dir + '/build/outputs/apk'
 		# 过滤文件
@@ -452,10 +455,6 @@ def deloy_qrcode_apk_file(output_directory, outputname, channel_name):
         if len(apk_path) == 0:
                 raise 'can not file apk file'
 
-        copy_apk_cmd = r'mv %s %s' %(apk_path, apk_qr_path)
-        print copy_apk_cmd
-        os.system(copy_apk_cmd)
-
 def deloy_nginx_static_file(project_config_path, projectname, output_name):
 	config_data = None
 	try:
@@ -485,9 +484,12 @@ def deloy_nginx_static_file(project_config_path, projectname, output_name):
 	server_bundle_folder = server_project_folder + '/' + version_name
 	if os.path.exists(server_bundle_folder) == False:
 		os.system('mkdir ' + server_bundle_folder)
-
+	# 按照时间进行文件处理
+	server_bundle_folder = server_project_folder + '/' + version_name + '/' + build_time
+	if os.path.exists(server_bundle_folder) == False:
+		os.system('mkdir ' + server_bundle_folder)
 	
-	root_http_url = 'http://' + server_ip + '/' + projectname + '/' +  version_name
+	root_http_url = 'http://' + server_ip + '/' + projectname + '/' +  version_name + '/' + build_time
 	apk_server_url = root_http_url + '/' + output_name
 	download_url = root_http_url + '/' + 'download.html'
 
@@ -509,16 +511,21 @@ def deloy_nginx_static_file(project_config_path, projectname, output_name):
 	apk_qr_path = server_bundle_folder + os.sep + output_name
 	apk_server_url = root_http_url + '/' + output_name
 	if os.path.exists(apk_qr_path) == False:
+		# 新创建一个用于显示二维码的APK文件(all渠道的时候)
+		copy_apk_cmd = r'cp %s %s' % (apk_path, apk_qr_path)
+                os.system(copy_apk_cmd)
+	if os.path.exists(apk_qr_path) == False:
 		raise 'can not find server qrcode apk file'
 
 	# 将mapping.txt部署到nginx目录下
         if os.path.exists(output_directory):
-            for fn in glob.glob(output_directory + os.sep + '*mapping.txt'):
+            for fn in glob.glob(output_directory + os.sep + 'mapping.txt'):
                 print fn
                 # 将目标文件拷贝到nginx目录
                 mapping_path = fn
                 copy_mapping_cmd = r'cp %s %s' % (mapping_path, server_bundle_folder)
                 os.system(copy_mapping_cmd)
+		print copy_mapping_cmd
 
 	# 重命名为目标文件用于生成二维码
 	if os.path.exists(apk_qr_path) == False:
@@ -538,7 +545,7 @@ def deloy_nginx_static_file(project_config_path, projectname, output_name):
 		raise e
 
 	# 生成二维码
-	generate_qrcode_image(download_url, server_bundle_folder)
+	generate_qrcode_image(apk_server_url, server_bundle_folder)
 	#print "download html: " + download_url	
 	#img_code_path = server_bundle_folder + '/' + 'qr.png'
 	#print "qrcode path: " + img_code_path
@@ -547,7 +554,7 @@ def deloy_nginx_static_file(project_config_path, projectname, output_name):
 	#img = qr.make_image()	
 	#img.save(img_code_path)	
 
-	# 创建nginx需要的文件
+	# 创建nginx需要的文件(download.html)
 	copy_download_html_cmd = r'cp %s %s' % (download_html_path, server_bundle_folder)
 	os.system(copy_download_html_cmd)
 
@@ -586,17 +593,18 @@ def deloy_mapping_file(build_output_directory, target_directory):
                                 #print "file_abs_path : {0}".format(file_abs_path)
                                 #print "file_parent : {0}".format(file_parent)
                                 if file.find('mapping.txt') != -1:
-                                        #print r'papping file %s' % (file)
+                                        #print r'mapping file %s' % (file)
                                         sub_file = os.path.basename(file_parent)
                                         if sub_file.find('release') != -1:
                                                 # release目录需要继续查找父目录作为渠道标识
                                                 file_parent = os.path.dirname(file_parent)
                                                 sub_file = os.path.basename(file_parent)
-                                        target_file_name = r'%s_%s' % (sub_file, file)
-                                        target_file_name = target_directory + os.sep + target_file_name
-                                        #print target_file_name
+                                        target_file_name = target_directory + os.sep + file
+                                        #just copy one mapping file to output directory
                                         copy_cmd = r'cp %s %s' % (file_path, target_file_name)
                                         os.system(copy_cmd)
+					print copy_cmd
+					return
                         except Exception, e:
                                 print "Exception", e
 	
